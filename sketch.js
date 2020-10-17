@@ -13,11 +13,11 @@ function setup() {
 
 	bobDiameter = 40
 
-	bobO1 = new Bob(width/2 - bobDiameter*2, height/4 + 5, bobDiameter)
-	bobO2 = new Bob(width/2 - bobDiameter, height/4 + 5, bobDiameter)
-	bobO3 = new Bob(width/2, height/4 + 5, bobDiameter)
-	bobO4 = new Bob(width/2 + bobDiameter, height/4 + 5, bobDiameter)
-	bobO5 = new Bob(width/2 + bobDiameter*2, height/4 + 5, bobDiameter)
+	bobO1 = new Bob(width/2 - bobDiameter*2, height/4 + 500, bobDiameter)
+	bobO2 = new Bob(width/2 - bobDiameter, height/4 + 500, bobDiameter)
+	bobO3 = new Bob(width/2, height/4 + 500, bobDiameter)
+	bobO4 = new Bob(width/2 + bobDiameter, height/4 + 500, bobDiameter)
+	bobO5 = new Bob(width/2 + bobDiameter*2, height/4 + 500, bobDiameter)
 	roof = new Roof(width/2, height/4, width/7, 20)
 	rope1 = new Rope(bobO1.body, roof.body,-bobDiameter*2, 0)
 	rope2 = new Rope(bobO2.body, roof.body,-bobDiameter, 0)
@@ -58,6 +58,6 @@ line(bobBodyposition.x, bobBodyposition.y, roofBodyX, roofBodyY)
 
 function keyPressed() {
 	if(keyCode == 32) {
-		sling1.attach(bird.body) 
+		Matter.Body.applyForce(bobO1.body,bobO1.body.position,{x:-50,y:-45});
 		}	
 }
